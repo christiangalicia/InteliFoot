@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Post;
+use  App\Models\Slider;
+use App\Models\Catalog;
+use App\Models\Product;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +23,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        Post::factory(30)->create();
+        Slider::factory(5)->create();
+       $catalogos= Catalog::factory(5)->create();
+         foreach($catalogos as $catalogo){
+              Product::factory(rand(0, 40))->create([
+                'catalog_id' => $catalogo->id
+              ]);
+         }
+      
+
+
+
     }
 }

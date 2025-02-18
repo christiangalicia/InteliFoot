@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('titulo', length: 30);
-            $table->string('subtitulo', length: 40);
+            $table->string('titulo', length: 30)->nullable();
+            $table->string('subtitulo', length: 40)->nullable();
             $table->string('slider', length: 200);
         });
     }
