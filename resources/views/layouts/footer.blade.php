@@ -15,7 +15,7 @@
             </div><!--//foooter-col-->
             <div class="footer-col col-lg-6 col-12 mt-4 mt-lg-0 newsletter">
                 <div class="footer-col-inner text-center">
-                    <img width="300" class="logo" src="assets/images/logotipo.png" alt="Logo">
+                    <img width="300" class="logo" src="{{url('assets/images/logotipo.png')}}" alt="Logo">
                     
                 </div><!--//footer-col-inner-->
             </div><!--//foooter-col--> 
@@ -32,8 +32,8 @@
                                 <span class="country-name">MXN</span>
                             </span>
                         </p>
-                        <p class="tel col-lg-12 col-md-4 col-12"><i class="fas fa-phone"></i>0800 123 4567</p>
-                        <p class="email col-lg-12 col-md-4 col-12"><i class="fas fa-envelope"></i><a href="#">contacto@IntelliFoot.com</a></p>  
+                        <p class="tel col-lg-12 col-md-4 col-12"><i class="fas fa-phone"></i>{{$contacto->telefono}}</p>
+                        <p class="email col-lg-12 col-md-4 col-12"><i class="fas fa-envelope"></i><a href="#">{{$contacto->correo}}</a></p>  
                     </div> 
                 </div><!--//footer-col-inner-->            
             </div><!--//foooter-col-->   

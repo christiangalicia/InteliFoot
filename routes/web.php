@@ -1,25 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontEndController;
+use League\CommonMark\Extension\FrontMatter\FrontMatterParser;
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/',[FrontEndController::class, 'index'])->name('inicio');
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog', [FrontEndController::class, 'blog'])->name('blog');
+Route::get('/blog/post/{id}/{slug}', [FrontEndController::class, 'post'])->name('post');
 
-Route::get('/tecnologia', function () {
-    return view('tecnologia');
-});
-Route::get('/nosotros', function () {
-    return view('nosotros');
-});
+Route::get('/tecnologia', [FrontEndController::class, 'tecnologia'])->name('tecnologia');
+Route::get('/nosotros', [FrontEndController::class, 'nosotros'])->name('nosotros');
 
-Route::get('/contacto', function () {
-    return view('contacto');
-});
-Route::get('/catalogo/deportivos', function () {
-    return view('catalogo');
-});
+Route::get('/contacto', [FrontEndController::class, 'contacto'])->name('contacto');
+
+Route::get('/catalogo/{slug}',[FrontEndController::class,'catalogo'] )->name('catalogo');

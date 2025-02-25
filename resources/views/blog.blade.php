@@ -4,88 +4,23 @@
 
 <div class="page-content">
     <div class="row page-row">
-        <div class="news-wrapper col-xl-8 col-lg-7 col-12 mb-5">                         
+        <div class="news-wrapper col-xl-8 col-lg-7 col-12 mb-5">   
+            @foreach ($posts as $post )
             <article class="news-item page-row has-divider row">       
                 <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-1.jpg" alt="" />
+                    <img class="img-fluid" src="{{$post->foto}}" alt="" />
                 </figure>
                 <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Morbi bibendum consectetuer vulputate sollicitudin</a></h3>
-                    <p>Morbi bibendum consectetuer, vulputate, sollicitudin, primis ullamcorper vulputate sed risus dis feugiat vel gravida, class enim Mus aliquam ut donec sodales bibendum rutrum dis sit rutrum id eleifend. Dapibus potenti.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
+                    <h3 class="title"><a href="news-single.html">{{$post->titulo}}</a></h3>
+                    <p>{{ Str::words($post->post, 25, ' ...'); }}</p>
+                    <a class="btn btn-theme read-more" href="{{ route('post', ['id' => $post->id, 'slug' => Str::slug($post->titulo)]) }}">Leer Más<i class="fas fa-chevron-right"></i></a>
                 </div>
             </article><!--//news-item-->
-            <article class="news-item page-row has-divider row">       
-                <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-2.jpg" alt="" />
-                </figure>
-                <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Aenean eleifend ornare nisi id molestie</a></h3>
-                    <p>Donec feugiat enim sit amet nisl scelerisque, at sodales eros ullamcorper. Vestibulum nisi nisi, mattis sit amet elementum tincidunt, auctor vel metus. Morbi posuere elit mauris, eu cursus velit faucibus varius. Vestibulum dapibus massa arcu, sed vulputate enim suscipit eget. Mauris euismod orci magna. Nullam et lacinia dui. Sed massa neque, auctor sed nibh vel, congue adipiscing justo.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
-                </div>
-            </article><!--//news-item-->
-            <article class="news-item page-row has-divider row">       
-                <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-3.jpg" alt="" />
-                </figure>
-                <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Quisque venenatis consequat commodo</a></h3>
-                    <p>Curabitur bibendum gravida odio, nec tempus libero varius ut. Nullam augue nibh, posuere nec pretium in, sagittis id magna. Aenean tellus augue, fermentum a purus vitae, adipiscing accumsan enim. Curabitur in leo vel sapien egestas laoreet vitae quis est. Fusce malesuada nulla et elit dictum, et porttitor turpis blandit.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
-                </div>
-            </article><!--//news-item-->
-            <article class="news-item page-row has-divider row">       
-                <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-4.jpg" alt="" />
-                </figure>
-                <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Donec feugiat enim sit amet nisl scelerisque</a></h3>
-                    <p>Vivamus faucibus ullamcorper nunc, non vulputate neque vulputate nec. Vivamus ut ante a diam scelerisque consequat. Maecenas nisl urna, condimentum ac justo a, adipiscing hendrerit magna. Fusce pharetra laoreet accumsan. Phasellus elit sapien, consequat vel sapien sit amet, condimentum vulputate odio.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
-                </div>
-            </article><!--//news-item-->
-            <article class="news-item page-row has-divider row">       
-                <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-5.jpg" alt="" />
-                </figure>
-                <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Ut eleifend dapibus ligula a ornare</a></h3>
-                    <p>Sed hendrerit scelerisque posuere. Sed eu ipsum cursus, vulputate augue nec, lobortis felis. Integer pellentesque rhoncus metus, non aliquet urna pharetra sed. Quisque ultrices justo egestas urna condimentum accumsan.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
-                </div>
-            </article><!--//news-item-->
-            <article class="news-item page-row has-divider row">       
-                <figure class="thumb col-lg-2 col-md-3 col-12">
-                    <img class="img-fluid" src="assets/images/news/news-thumb-6.jpg" alt="" />
-                </figure>
-                <div class="details col-lg-10 col-md-9 col-12">
-                    <h3 class="title"><a href="news-single.html">Pellentesque sollicitudin leo non lacinia mattis</a></h3>
-                    <p>Morbi bibendum consectetuer, vulputate, sollicitudin, primis ullamcorper vulputate sed risus dis feugiat vel gravida, class enim Mus aliquam ut donec sodales bibendum rutrum dis sit rutrum id eleifend. Dapibus potenti.</p>
-                    <a class="btn btn-theme read-more" href="news-single.html">Read more<i class="fas fa-chevron-right"></i></a>
-                </div>
-            </article><!--//news-item-->
-            
+            @endforeach                      
+           
+           
             <nav class="pagination-container text-center">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" arial-label="previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1<span class="sr-only">(current)</span></a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul><!--//pagination-->
+               {{$posts->onEachSide(3)->links('pagination::bootstrap-5') }}
             </nav>
             
         </div><!--//news-wrapper-->

@@ -47,8 +47,8 @@
             
             <section class="widget">
                 <h3 class="title">All Enquiries</h3>
-                <p class="tel"><i class="fas fa-phone"></i>Tel: 0800 123 4567</p>
-                <p class="email"><i class="fas fa-envelope"></i>Email: <a href="#">enquires@website.com</a></p>
+                <p class="tel"><i class="fas fa-phone"></i>Tel: {{$contacto->telefono}}</p>
+                <p class="email"><i class="fas fa-envelope"></i>Email: <a href="#">{{$contacto->correo}}</a></p>
             </section>   
         </aside><!--//page-sidebar-->
     </div><!--//page-row-->

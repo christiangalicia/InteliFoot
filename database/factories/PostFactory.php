@@ -19,8 +19,9 @@ class PostFactory extends Factory
     {
         return [
             'titulo' => fake()->sentence(),
-            'post' => fake()->text(),
+            'post' => fake()->text(rand(600,2600)),
             'destacado' => fake()->boolean(),
+            'foto' => 'https://picsum.photos/1200/800',
             
         ];
     }

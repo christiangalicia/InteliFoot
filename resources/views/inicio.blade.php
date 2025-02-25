@@ -3,22 +3,30 @@
 @section('content')
 <div id="promo-carousel" class="promo-carousel carousel slide">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#promo-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#promo-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        @foreach ($slider as $s )
+        <button type="button" data-bs-target="#promo-carousel" data-bs-slide-to="{{$loop->index}}" 
+            class="{{$loop->first ? 'active': ''}}" aria-current="true" aria-label="Slide {{$loop->index+1}}"></button>
+        @endforeach
+       
     </div>
     <div class="carousel-inner slides">
-        <div class="carousel-item slide-1 active">
+
+        @foreach ($slider as $s )
+        <div class="carousel-item {{$loop->first ? 'active': ''}}" style="background-image: url({{$s["slider"]}});">
             <div class="carousel-caption text-start">
-                <span class="main" >Titulo principal</span>
+                @if ($s["titulo"] != "")
+                <span class="main" >{{$s["titulo"]}}</span>
+                @endif
                 <br />
-                <span class="secondary" >Contenido Adicional</span>
+                @if($s["subtitulo"] != "")
+                <span class="secondary" >{{$s["subtitulo"]}}</span>
+                @endif
             </div>
         </div>
-        <div class="carousel-item slide-2">
-            <div class="carousel-caption text-start">
-               
-            </div>
-        </div>
+        @endforeach
+
+
+      
 
     </div><!--//carousel-inner-->
     <button class="carousel-control-prev d-none d-lg-inline-block" type="button" data-bs-target="#promo-carousel" data-bs-slide="prev">
@@ -57,68 +65,45 @@
         <h1 class="section-heading text-highlight">Productos Destacados</h1>
     </div>
     <div class="row ">
+        @foreach ($productos as $producto )
         <div class="col-md-4 col-12 text-center">
             <div class="album-cover">
-                <a href="producto.html"><img class="img-fluid" src="assets/images/productos/p1.jpg" alt="" /></a>
+                <a href="#"><img class="img-fluid" src="{{$producto->foto}}" alt="" /></a>
                 <div class="desc">
-                    <h4><small><a href="#">UrbanLink Series: Estilo y conexión en cada paso</a></small></h4>
-                    <p>Zapatos que combinan moda urbana con tecnología de vanguardia. Los UrbanLink Series se conectan a tu teléfono para notificarte llamadas, mensajes y direcciones GPS, todo mientras mantienes un estilo impecable.</p>
+                    <h4><small><a href="#">{{$producto->nombre}}</a></small></h4>
+                    <p>{{ Str::words($producto->descripcion, 25, ' ...'); }}</p>
                 </div>
             </div>
         </div>
+        @endforeach
+       
         
-        <div class="col-md-4 col-12 text-center">
-            <div class="album-cover">
-                <a href="producto.html"><img class="img-fluid" src="assets/images/productos/p2.jpg" alt="" /></a>
-                <div class="desc">
-                    <h4><small><a href="#">SafeTech Work: Protección inteligente para ambientes desafiantes</a></small></h4>
-                    <p>Zapatos industriales diseñados para entornos de alto riesgo. Los SafeTech Work incluyen sensores IoT que detectan caídas, temperaturas extremas y riesgos químicos.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-12 text-center">
-            <div class="album-cover">
-                <a href="producto.html"><img class="img-fluid" src="assets/images/productos/p3.jpg" alt="" /></a>
-                <div class="desc">
-                    <h4><small><a href="#">NexStep Pro: Domina tu entrenamiento con tecnología IoT</a></small></h4>
-                    <p>¡Lleva tu rendimiento al siguiente nivel! Los NexStep Pro son zapatos deportivos diseñados para atletas y amantes del fitness. </p>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
 <section class="news">
     <h1 class="section-heading text-highlight"><span class="line">Ultimas Publicacion</span></h1>     
-    <div class="carousel-controls">
-        <a class="prev" href="#news-carousel" data-bs-slide="prev"><i class="fas fa-caret-left"></i></a>
-        <a class="next" href="#news-carousel" data-bs-slide="next"><i class="fas fa-caret-right"></i></a>
-    </div><!--//carousel-controls--> 
+   
     <div class="section-content ">
         <div id="news-carousel" class="news-carousel carousel slide">
             <div class="carousel-inner">
                 <div class="item carousel-item active"> 
-                    <div class="row">
+                    @foreach ($posts as $post )
+                        @if($loop->index  == 0 || $loop->index  == 3)
+                            <div class="row">
+                        @endif
                         <div class="col-lg-4 col-12 news-item">
-                            <h2 class="title"><a href="post.html">StepTech Revolution: Tus Zapatos Ahora Son Tu Entrenador Personal</a></h2>
-                            <img class="thumb2" src="assets/images/news/new1.jpg"  alt="" />
-                            <p>Acabamos de lanzar los StepTech Pro, zapatos deportivos con sensores IoT que miden en tiempo real tu velocidad, postura y calorías quemadas.</p>
-                            <a class="read-more" href="post.html">Leer Más<i class="fas fa-chevron-right"></i></a>                
+                            <h2 class="title"><a href="{{route("post",["id"=>$post->id,'slug' => Str::slug($post->titulo)])}}">{{$post->titulo}}</a></h2>
+                            <img class="thumb2" src="{{$post->foto}}"  alt="" />
+                            <p>{{ Str::words($post->post, 30, ' ...'); }}</p>
+                            <a class="read-more" href="{{route("post",["id"=>$post->id,'slug' => Str::slug($post->titulo)])}}">Leer Más<i class="fas fa-chevron-right"></i></a>                
                         </div><!--//news-item-->
-                        <div class="col-lg-4 col-12 news-item">
-                            <h2 class="title"><a href="post.html">UrbanLink X: Nunca Más Te Pierdes en la Ciudad</a></h2>
-                            <img class="thumb2" src="assets/images/news/new2.jpg"  alt="" />
-                            <p>Los zapatos UrbanLink X están agotándose rápidamente. Con GPS integrado y alertas de tráfico en tiempo real</p>
-                            <a class="read-more" href="post.html">Leer Más<i class="fas fa-chevron-right"></i></a>                
-                        </div><!--//news-item-->
-                        <div class="col-lg-4 col-12 news-item">
-                            <h2 class="title"><a href="post.html">SafeTech Alert: La Tecnología que Protege a los Trabajadores</a></h2>
-                            <img class="thumb2" src="assets/images/news/new3.jpg"  alt="" />
-                            <p>Presentamos los SafeTech Work 2.0, zapatos industriales con sensores IoT que detectan caídas, fugas químicas y riesgos eléctricos. ¡</p>
-                            <a class="read-more" href="post.html">Leer Más<i class="fas fa-chevron-right"></i></a>                
-                        </div><!--//news-item-->
-                    </div><!--//row-->
+                        @if($loop->index  == 2 || $loop->index  == 5)
+                            </div>
+                        @endif
+                        
+                    @endforeach
+                   
                 </div><!--//item-->
                
             </div><!--//carousel-inner-->

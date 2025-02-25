@@ -7,6 +7,7 @@ use App\Models\Post;
 use  App\Models\Slider;
 use App\Models\Catalog;
 use App\Models\Product;
+use App\Models\Contact;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -33,6 +34,14 @@ class DatabaseSeeder extends Seeder
               ]);
          }
       
+
+         Contact::factory()->create([
+          'telefono' => '2384956678',
+          'correo' => 'contacto@IntelliFoot.com',
+          'facebook' => 'https://www.facebook.com/IntelliFoot',
+          'instagram' => 'https://www.instagram.com/IntelliFoot',
+          'x' => 'https://x.com/IntelliFoot',
+      ]);
 
 
 

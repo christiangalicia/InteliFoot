@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('tallas', ['ch', 'md', 'gd']);
             $table->decimal('precio', total: 8, places: 2);
             $table->foreignId('catalog_id')->constrained('catalogs')->onDelete('cascade');
+            $table->boolean('destacado')->default(value: false);
         });
     }
 

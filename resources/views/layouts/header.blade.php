@@ -3,11 +3,10 @@
         <div class="container">     
             <div class="row">   
                 <ul class="social-icons col-md-6 col-12">
-                    <li><a href="#" ><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="#" ><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#" ><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#" ><i class="fa-brands fa-linkedin-in"></i></a></li>       
-                    <li class="row-end"><a href="#" ><i class="fa-brands fa-instagram"></i></a></li>             
+                    <li><a href="{{$contacto->x}}" ><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="{{$contacto->facebook}}" ><i class="fa-brands fa-facebook-f"></i></a></li>
+    
+                    <li class="row-end"><a href="{{$contacto->instagram}}" ><i class="fa-brands fa-instagram"></i></a></li>             
                 </ul><!--//social-icons-->
                 <form class="col-md-6 col-12 search-form" role="search">
                     <div class="form-group">
@@ -35,8 +34,8 @@
                 </ul><!--//menu-top-->
               
                 <div class="contact d-none d-lg-block">
-                    <p class="phone"><i class="fas fa-phone"></i>Call us today 0800 123 4567</p> 
-                    <p class="email"><i class="fas fa-envelope"></i><a href="#">contacto@IntelliFoot.com</a></p>
+                    <p class="phone"><i class="fas fa-phone"></i>Call us today {{$contacto->telefono}}</p> 
+                    <p class="email"><i class="fas fa-envelope"></i><a href="#">{{$contacto->correo}}</a></p>
                 </div><!--//contact-->
             </div><!--//info-->
         </div><!--//row-->

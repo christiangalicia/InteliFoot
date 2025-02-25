@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('titulo', length: 100);
+            $table->string('foto', length: 200);
             $table->text('post');
             $table->boolean('destacado')->default(value: false);
         });
