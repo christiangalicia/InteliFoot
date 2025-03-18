@@ -7,12 +7,10 @@
 <body class="home-page">
     <div class="wrapper">
         <!-- ******HEADER****** --> 
-       @include('layouts.header')
+       @include('admin.layouts.header')
         <!--//header-->
         
-        <!-- ******NAV****** -->
-        @include('layouts.nav')
-        <!--//main-nav-container-->
+     
         
         <!-- ******CONTENT****** --> 
         <div class="content container">
@@ -26,7 +24,7 @@
     </div><!--//wrapper-->
     
     <!-- ******FOOTER****** --> 
-    @include('layouts.footer')
+    @include('admin.layouts.footer')
     <!--//footer-->
     
     
