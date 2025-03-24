@@ -31,7 +31,7 @@
 
  
     <!-- Javascript -->          
-    @include('layouts.scripts')  
+    @yield('script')  
     
 </body>
 </html> 
