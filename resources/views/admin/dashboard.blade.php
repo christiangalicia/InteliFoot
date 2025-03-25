@@ -21,7 +21,7 @@
                 </div>
                 <div class="card page-row">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="#">Catalogo de productos</a> <span class="badge badge-success float-end">Blog</span></h3>
+                        <h3 class="card-title"><a href="{{route("productIndex")}}">Catalogo de productos</a> <span class="badge badge-success float-end">Blog</span></h3>
                         
                     </div>
                     <div class="card-body">

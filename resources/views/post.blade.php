@@ -15,7 +15,7 @@
                 <div class="details col-lg-10 col-md-9 col-12">
                     
                     
-                    <p>{{$post->post}}</p>
+                    <p>{!!$post->post!!}</p>
                     
                 </div>
             </article><!--//news-item-->

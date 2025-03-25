@@ -71,7 +71,7 @@
                 <a href="#"><img class="img-fluid" src="{{$producto->foto}}" alt="" /></a>
                 <div class="desc">
                     <h4><small><a href="#">{{$producto->nombre}}</a></small></h4>
-                    <p>{{ Str::words($producto->descripcion, 25, ' ...'); }}</p>
+                    <p>{{ Str::words(strip_tags($producto->descripcion), 25, ' ...'); }}</p>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                         <div class="col-lg-4 col-12 news-item">
                             <h2 class="title"><a href="{{route("post",["id"=>$post->id,'slug' => Str::slug($post->titulo)])}}">{{$post->titulo}}</a></h2>
                             <img class="thumb2" src="{{$post->foto}}"  alt="" />
-                            <p>{{ Str::words($post->post, 30, ' ...'); }}</p>
+                            {{ Str::words(strip_tags($post->post), 30, ' ...') }}
                             <a class="read-more" href="{{route("post",["id"=>$post->id,'slug' => Str::slug($post->titulo)])}}">Leer Más<i class="fas fa-chevron-right"></i></a>                
                         </div><!--//news-item-->
                         @if($loop->index  == 2 || $loop->index  == 5)

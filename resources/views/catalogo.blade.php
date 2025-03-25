@@ -10,7 +10,7 @@
                     <a href="#"><img class="img-fluid" src="{{$producto->foto}}" alt="" /></a>
                     <div class="desc">
                         <h4><small><a href="#">{{$producto->nombre}}</a></small></h4>
-                        <p>{{ Str::words($producto->descripcion, 25, ' ...'); }}</p>
+                        <p>{{ Str::words(strip_tags($producto->descripcion), 25, ' ...'); }}</p>
                     </div>
                 </div>
                 @endforeach
